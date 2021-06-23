@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, MaskEdit;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, MaskEdit, Ordenamiento;
 
 type
 
@@ -16,6 +16,7 @@ type
     btnMostrarArchivo: TButton;
     btnMostrarEscalafon: TButton;
     btnAplicarNombre: TButton;
+    btnOrdenar: TButton;
     comboSexo: TComboBox;
     comboEscalafon: TComboBox;
     comboFiltrarEscalafon: TComboBox;
@@ -42,20 +43,14 @@ type
     procedure btnCargarPersonaClick(Sender: TObject);
     procedure btnMostrarArchivoClick(Sender: TObject);
     procedure btnMostrarEscalafonClick(Sender: TObject);
+    procedure btnOrdenarClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
 
   public
 
   end;
-  registroPersona = record
-    nombre: String[20];
-    apellido: String[20];
-    fechaNac: String[10];
-    sexo: Char;
-    escalafon: Char;
-    sueldo: real;
-  end;
+
 
 var
   Form1: TForm1;
@@ -173,6 +168,12 @@ end;
 procedure TForm1.btnMostrarEscalafonClick(Sender: TObject);
 begin
   filtrarPersonasEscalafon(nombreDeArchivo, comboFiltrarEscalafon.Text[1]);
+end;
+
+procedure TForm1.btnOrdenarClick(Sender: TObject);
+begin
+  ordenarArchivoBinario(nombreDeArchivo);
+  mostrarArchivoEnMemo(nombreDeArchivo);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
