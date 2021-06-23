@@ -36,7 +36,7 @@ begin
   a[j]:=temp;
 end;
 
-//No se que hace pero funciona
+//Devuelve la posición del elemento que vale menos
 function PosMinimoNombre(var a:arregloPersonas;i,j:integer):integer;
 var
    pmin,k:integer;
